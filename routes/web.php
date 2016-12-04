@@ -10,7 +10,8 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->post('/create-club', 'ClubController@createClub');

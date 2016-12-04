@@ -82,6 +82,8 @@ $app->singleton(
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+$app->register(App\Providers\CodeClubWorldServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
@@ -96,5 +98,10 @@ $app->singleton(
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
     require __DIR__.'/../routes/web.php';
 });
+
+config(['code_club_api' => [
+	'create_club_endpoint' => env('CC_API_CREATE_CLUB_ENDPOINT'),
+	'api_bearer_key' => env('CC_API_BEARER_KEY')
+]]);
 
 return $app;
